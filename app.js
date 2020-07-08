@@ -17,7 +17,10 @@ async function getGiphy(query) {
     displayGiphy(res.data.data[0].images.fixed_height.url);
   }
   catch (err) {
-    alert('Oops! Something went wrong!')
+    if (err.message === "Cannot read property 'images' of undefined") {
+      return alert('No results found. Please try a different search term.')
+    }
+    alert('Oops! Something went wrong! Try again.')
     throw new Error(err)
   }
 }
