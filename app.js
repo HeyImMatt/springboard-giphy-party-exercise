@@ -1,8 +1,8 @@
 function getSearchTerm(evt) {
+  evt.preventDefault();
+  
   const input = document.querySelector('#search-text');
   const searchTerm = input.value;
-
-  evt.preventDefault();
 
   if (input.value) {
     getGiphy(searchTerm);
