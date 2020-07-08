@@ -3,8 +3,11 @@ function getSearchTerm(evt) {
   const searchTerm = input.value;
 
   evt.preventDefault();
-  input.value = '';
-  getGiphy(searchTerm);
+  if (input.value) {
+    input.classList.remove('is-invalid')
+    input.value = '';
+    getGiphy(searchTerm);
+  } else input.classList.add('is-invalid')
 }
 
 async function getGiphy(query) {
