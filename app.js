@@ -33,9 +33,22 @@ function displayGiphy(imgLink) {
   gif.setAttribute('class', 'm-2')
 
   outputDiv.append(gif);
+}
+
+function removeGifs(evt) {
+  evt.preventDefault();
   
+  const gifs = Array.from(document.querySelector('#gif-display').children);
+
+  for (let gif of gifs) {
+    gif.remove();
+  }
 }
 
 document.querySelector('#search-btn').addEventListener('click', (evt) => {
   getSearchTerm(evt);
+})
+
+document.querySelector('#remove-gifs-btn').addEventListener('click', (evt) => {
+  removeGifs(evt);
 })
