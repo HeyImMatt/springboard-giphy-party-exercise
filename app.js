@@ -13,7 +13,7 @@ function getSearchTerm(evt) {
 
 async function getGiphy(query) {
   try {
-    let res = await axios.get('http://api.giphy.com/v1/gifs/search', {params: { api_key: 'MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym', q: query, limit: 1, } });
+    let res = await axios.get('http://api.giphy.com/v1/gifs/search', {params: { api_key: 'MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym', q: query, limit: 1, offset: Math.floor(Math.random() * 5)} });
     displayGiphy(res.data.data[0].images.fixed_height.url);
   }
   catch (err) {
